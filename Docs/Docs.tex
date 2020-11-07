@@ -38,6 +38,7 @@ Atat in cazul Serverului, cat si al Clientului, cheia si vectorul de initializar
 
 \section{Mod de Utilizare}
 In primul rand, o instanta a Serverului trebuie sa fie pornita. Executabilul de Server se regaseste in folderul "bin". Nu este necesara pasarea vreunui argument la linia de comanda. \\
+Executabilul de Client se regaseste in folderul "bin". Trebuie pasat un argument la linia de comanda, specificand modul de operare folosit("ecb"/"ECB" ori "cfb"/"CFB"). Daca argumentul este invalid, Clientul va folosi CFB. \\
 Serverul va astepta conexiuni. Dupa conectarea unui Client, toti ceilalti Clienti sunt notificati. Apoi, se asteapta un mesaj din partea noului Client, in cadrul caruia mentioneaza daca doreste sa foloseasca modul de operare ECB, ori CFB, pentru incriptia AES. Dupa receptionarea mesajului, se creaza o cheie noua si un vector de initializare(random, folosind primita RAND\_bytes() din headerul "openssl/rand.h" a bibliotecii openssl. Acestea sunt trimise, pe rand, catre client. Din acel punct, Clientul respectiv este plasat in pool-ul de Clienti conectati. \\
 Cand un Client trimite un mesaj, acesta este decriptat de catre server si recriptat, conform cheilor si vectorilor de initializare asociate fiecarui altui Client, ca apoi criptotextele sa fie trimise catre ceilalti Clienti. \\
 In momentul in care un Client se deconecteaza, Serverul detecteaza acest eveniment si notifica toti ceilalti Clienti.
