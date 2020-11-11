@@ -1,8 +1,8 @@
 #define IP "127.0.0.1"
 #define PORT 3000
 #define READ_BUFFER_SIZE 1024
-#define KEY_FILE "resources/key.pem"
-#define IV_FILE "resources/iv.pem"
+#define KEY_FILE "../resources/key.pem"
+#define IV_FILE "../resources/iv.pem"
 
 #include <fstream>
 #include <string.h>
